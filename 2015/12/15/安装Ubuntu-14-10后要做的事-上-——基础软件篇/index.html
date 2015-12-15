@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Dev的技术博客">
 <meta property="og:description" content="由于平时主要在Ubuntu上工作，折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu时的常见问题，第一部分是常见基础软件的使用。">
 <meta property="og:image" content="http://images.cnitblog.com/blog/678327/201501/081811042038569.png">
-<meta property="og:updated_time" content="2015-12-15T13:12:54.000Z">
+<meta property="og:updated_time" content="2015-12-15T13:26:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装Ubuntu 14.10后要做的事(上)——基础软件篇">
 <meta name="twitter:description" content="由于平时主要在Ubuntu上工作，折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu时的常见问题，第一部分是常见基础软件的使用。">
@@ -155,7 +155,7 @@
 </li>
 </ul>
 <p>推荐使用XShell+Xftp软件，创建新会话，填写完ip地址、用户名和密码就可登陆你的Ubuntu服务器</p>
-<h2 id="u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668"><a href="#u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668" class="headerlink" title="远程界面登陆服务器"></a>远程界面登陆服务器</h2><ol>
+<h2 id="u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668"><a href="#u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668" class="headerlink" title="远程界面登陆服务器"></a>远程界面登陆服务器</h2><ul>
 <li><p>安装x11vnc： <code>sudo apt-get install x11vnc</code></p>
 </li>
 <li><p>设置vnc连接密码，根据提示输入密码并保存：</p>
@@ -164,26 +164,24 @@
 <li><p>启动vncserver:</p>
 <ul>
 <li><p>后台自动启动</p>
-<ul>
+<ol>
 <li><code>sudo cp ~/.vnc/passwd /etc/x11vnc.pass</code></li>
 <li>创建/etc/init/x11vnc.conf文件，内容如下：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">start</span> <span class="keyword">on</span> login-<span class="keyword">session</span>-<span class="keyword">start</span></span><br><span class="line">script</span><br><span class="line">       x11vnc -display :<span class="number">0</span> -auth /<span class="keyword">var</span>/run/lightdm/root/:<span class="number">0</span> -forever -bg -o /<span class="keyword">var</span>/<span class="keyword">log</span>/x11vnc.<span class="keyword">log</span> -rfbauth /etc/x11vnc.pass -rfbport <span class="number">5900</span>  </span><br><span class="line"><span class="keyword">end</span> script</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+</ol>
 </li>
 <li><p>单次手动启动: <code>x11vnc -forever -shared -rfbauth ~/.vnc/passwd</code></p>
 </li>
 </ul>
+<p>重启ubuntu系统，再在Windows上用vnc viewer登陆。输入VNC Server名字-IP地址：端口号，后再输入设置vnc的连接密码</p>
 </li>
-<li><p>重启ubuntu系统，再在Windows上用vnc viewer登陆。输入VNC Server名字-IP地址：端口号，后再输入设置vnc的连接密码</p>
-</li>
-</ol>
+</ul>
 <p>常用的x11vnc命令</p>
 <ul>
 <li><code>x11vnc -kill :1</code>, 杀掉1号端口的vnc server进程</li>
 </ul>
-<h1 id="u57FA_u7840_u8F6F_u4EF6"><a href="#u57FA_u7840_u8F6F_u4EF6" class="headerlink" title="基础软件"></a>基础软件</h1><p>下面是本人经常使用的软件：</p>
-<ul>
-<li>搜狗输入法:先安装fcitx版本： <code>sudo apt-get install fcitx</code>，再下载32位或64位的Ubuntu deb版<a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="external">搜狗输入法</a></li>
+<h1 id="u57FA_u7840_u8F6F_u4EF6"><a href="#u57FA_u7840_u8F6F_u4EF6" class="headerlink" title="基础软件"></a>基础软件</h1><ul>
+<li>搜狗输入法:先安装fcitx： <code>sudo apt-get install fcitx</code>，再下载32位或64位的Ubuntu deb版<a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="external">搜狗输入法</a></li>
 <li>办公软件： <a href="http://community.wps.cn/download/" target="_blank" rel="external">WPS for Linux</a> + Ocular阅读器</li>
 <li>影音播放： Audacious + VLC + <a href="http://smplayer.sourceforge.net/en/downloads" target="_blank" rel="external">SMPlayer</a>结合使用</li>
 <li>浏览器：<a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html" target="_blank" rel="external">Google Chrome</a> + 扩展插件(Proxy SwitchSharp、Vimium、Adblock)+App(安装QQ、微信，特别建议在Windows的Chrome浏览器安装vnc viewer,如下图所示)</li>
