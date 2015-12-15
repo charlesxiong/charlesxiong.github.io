@@ -1,0 +1,561 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>安装Ubuntu 14.10后要做的事(上)——基础软件篇 | Dev的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Charles Xiong">
+    
+
+    
+    <meta name="description" content="由于平时主要在Ubuntu上工作，折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu时的常见问题，第一部分是常见基础软件的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装Ubuntu 14.10后要做的事(上)——基础软件篇">
+<meta property="og:url" content="http://charlesxiong.github.io/2015/12/15/安装Ubuntu-14-10后要做的事-上-——基础软件篇/index.html">
+<meta property="og:site_name" content="Dev的技术博客">
+<meta property="og:description" content="由于平时主要在Ubuntu上工作，折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu时的常见问题，第一部分是常见基础软件的使用。">
+<meta property="og:image" content="http://images.cnitblog.com/blog/678327/201501/081811042038569.png">
+<meta property="og:updated_time" content="2015-12-15T13:12:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装Ubuntu 14.10后要做的事(上)——基础软件篇">
+<meta name="twitter:description" content="由于平时主要在Ubuntu上工作，折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu时的常见问题，第一部分是常见基础软件的使用。">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Dev的技术博客" title="Dev的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Dev的技术博客">Dev的技术博客</a></h1>
+				<h2 class="blog-motto">在路上学习成长</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/about">简介</a></li>
+					
+					<li>
+ 					
+						<form class="search">
+							<label>Search</label>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/15/安装Ubuntu-14-10后要做的事-上-——基础软件篇/" title="安装Ubuntu 14.10后要做的事(上)——基础软件篇" itemprop="url">安装Ubuntu 14.10后要做的事(上)——基础软件篇</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Charles Xiong" target="_blank" itemprop="author">Charles Xiong</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-15T12:52:57.000Z" itemprop="datePublished"> 发表于 2015-12-15</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u66F4_u65B0_u8F6F_u4EF6_u6E90"><span class="toc-number">1.</span> <span class="toc-text">更新软件源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux_u6253_u5F00_u6587_u672C_u6587_u4EF6_u4E71_u7801"><span class="toc-number">2.</span> <span class="toc-text">linux打开文本文件乱码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5F00_u673A_u81EA_u52A8_u52A0_u8F7DWindows_u5206_u533A"><span class="toc-number">3.</span> <span class="toc-text">开机自动加载Windows分区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8FDC_u7A0B_u767B_u9646_u4E3B_u673A"><span class="toc-number">4.</span> <span class="toc-text">远程登陆主机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh_u547D_u4EE4_u884C_u767B_u9646"><span class="toc-number">4.1.</span> <span class="toc-text">ssh命令行登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668"><span class="toc-number">4.2.</span> <span class="toc-text">远程界面登陆服务器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u57FA_u7840_u8F6F_u4EF6"><span class="toc-number">5.</span> <span class="toc-text">基础软件</span></a></li></ol>
+		
+		</div>
+		
+		<p>由于平时主要在Ubuntu上工作，折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu时的常见问题，第一部分是常见基础软件的使用。</p>
+<a id="more"></a>
+<h1 id="u66F4_u65B0_u8F6F_u4EF6_u6E90"><a href="#u66F4_u65B0_u8F6F_u4EF6_u6E90" class="headerlink" title="更新软件源"></a>更新软件源</h1><p>装完ubuntu第一件事就是添加更快速的源，因为官方提供的源服务器在国外,访问和下载速度要比国内源慢些，可以采用一些国内公司和大学提供的更新源.</p>
+<ul>
+<li><p>在<code>System Settings -&gt; Software &amp; Updates</code>,在<code>Download from</code>中在中国区选择速度最快的服务器源。这种方法比使用命令行快很多。</p>
+</li>
+<li><p>命令行设置步骤:</p>
+<ol>
+<li>备份原有源,恢复时有用 <code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup</code></li>
+<li>修改更新源，添加相应的镜像源(个人常用163源、yun-idc源) <code>sudo gedit /etc/apt/sources.list</code></li>
+<li>更新源并升级系统<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> upgrade</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="linux_u6253_u5F00_u6587_u672C_u6587_u4EF6_u4E71_u7801"><a href="#linux_u6253_u5F00_u6587_u672C_u6587_u4EF6_u4E71_u7801" class="headerlink" title="linux打开文本文件乱码"></a>linux打开文本文件乱码</h1><p>缺省配置下，用Ubuntu的文本编辑器（gedit）打开<code>GB18030</code>（繁体中文用户可将<code>GB18030</code>替换成<code>BIG5</code>或<code>BIG5-HKSCS</code>）类型的中文编码文本文件时会发生乱码。这是因为gedit使用一个编码匹配列表，只有在这个列表中的编码才会进行匹配，不在这个列表中的编码将显示为乱码。您要做的就是将<code>GB18030</code>加入这个匹配列表。</p>
+<ul>
+<li><p>Gedit 3.x版本设置（适用于Ubuntu 11.10及以后）</p>
+<ul>
+<li>安装dconf-editor: <code>sudo apt-get install dconf-tools</code></li>
+<li>手动方式：在org/gnome/gedit/preferences/encodings下添加中文编码方式</li>
+<li>命令行方式:<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org<span class="class">.gnome</span><span class="class">.gedit</span><span class="class">.preferences</span><span class="class">.encodings</span> <span class="attribute">auto</span>-detected <span class="string">"['GB18030', 'UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Gedit 2.x版本设置（适用于Ubuntu 11.04及以前）</p>
+<ul>
+<li>安装gconf-editor： <code>sudo apt-get install gconf-editor</code></li>
+<li>手动方式：选择<code>apps—gedit2—preferences—encodings</code>。双击右边名称“auto-    detected”，在弹出的编辑键菜单中，添加编码GB18030，GBK，GB2312，移到最上面即可</li>
+<li>命令行方式： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gconftool-<span class="number">2</span> --<span class="built_in">set</span> --type=<span class="built_in">list</span> --<span class="built_in">list</span>-type=<span class="built_in">string</span> /apps/gedit-<span class="number">2</span>/preferences/encodings/auto_detected</span><br><span class="line"><span class="string">"[UTF-8,CURRENT,GB18030,ISO-8859-15,UTF-16]"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="u5F00_u673A_u81EA_u52A8_u52A0_u8F7DWindows_u5206_u533A"><a href="#u5F00_u673A_u81EA_u52A8_u52A0_u8F7DWindows_u5206_u533A" class="headerlink" title="开机自动加载Windows分区"></a>开机自动加载Windows分区</h1><ol>
+<li><p>在root权限下查看分区: <code>fdisk -l</code></p>
+</li>
+<li><p>统计windows分区，命令: <code>sudo mkdir -p /media/charles/{windows分区名字}</code></p>
+</li>
+<li><p>编辑描述各种文件系统信息的文件<code>/etc/fstab</code>,添加对应Windows分区信息:<code>sudo gedit /etc/fstab</code></p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># &lt;file system&gt; &lt;mount point&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;</span></span><br><span class="line"><span class="preprocessor"># / was on /dev/sda6 during installation</span></span><br><span class="line">UUID=df8a06fe-<span class="number">6507</span>-<span class="number">4242</span>-<span class="number">80</span>bc-<span class="number">85</span>db21b15c9b / ext4 errors=remount-ro <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="preprocessor"># swap was on /dev/sda5 during installation</span></span><br><span class="line">UUID=<span class="number">911758</span>dc-eba4-<span class="number">4624</span>-abad-c9b4a2b1b3cf none swap sw <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># reserved partition</span></span><br><span class="line">/dev/sda1 /media/charles/reserc ntfs none <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># windows partition</span></span><br><span class="line">/dev/sda2 /media/charles/winc ntfs none <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># work partition</span></span><br><span class="line">/dev/sda3 /media/charles/work ntfs none <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h1 id="u8FDC_u7A0B_u767B_u9646_u4E3B_u673A"><a href="#u8FDC_u7A0B_u767B_u9646_u4E3B_u673A" class="headerlink" title="远程登陆主机"></a>远程登陆主机</h1><p>安装ssh服务器： <code>sudo apt-get install openssh-server</code></p>
+<h2 id="ssh_u547D_u4EE4_u884C_u767B_u9646"><a href="#ssh_u547D_u4EE4_u884C_u767B_u9646" class="headerlink" title="ssh命令行登陆"></a>ssh命令行登陆</h2><ul>
+<li>ubuntu下开启ssh服务<br>查看ssh服务是否在后台开启，出现了sshd字样表示ssh后台服务默认已开启<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">charles@charles-t400s:~$ ps -e | grep ssh</span><br><span class="line"><span class="number">10588</span> ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> sshd</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>你的服务器也可以是Mac或者Windows，只需要安装ssh服务器，并开启ssh后台服务即可。如果开启ssh服务后客户端连接不上服务器，在服务器上执行如下命令:<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service <span class="regexp">/etc/i</span>nit.d<span class="regexp">/ssh restart</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Windows下安装ssh客户端 <ul>
+<li><a href="http://www.wm.edu/offices/it/services/software/licensedsoftware/webeditingsftp/sshsecureshell/index.php" target="_blank" rel="external">secure shell client</a>：免费开源，但中文显示乱码，无法传输中文乱码名的文件，不能记住密码</li>
+<li><a href="http://www.putty.org/" target="_blank" rel="external">putty</a> : 占用内存最小，每次登陆时需要重新连接，可通过设置编码为UTF-8不会显示中文乱码</li>
+<li><strong><a href="http://www.netsarang.com/download/free_license.html" target="_blank" rel="external">Xshell和Xftp</a></strong>: 商用软件，但有免费版，可以保存设置的登陆会话，能记住密码，传输文件和显示中文时都可以通过设置编码为UFT-8而不会产生乱码，效果最佳。</li>
+</ul>
+</li>
+</ul>
+<p>推荐使用XShell+Xftp软件，创建新会话，填写完ip地址、用户名和密码就可登陆你的Ubuntu服务器</p>
+<h2 id="u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668"><a href="#u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668" class="headerlink" title="远程界面登陆服务器"></a>远程界面登陆服务器</h2><ol>
+<li><p>安装x11vnc： <code>sudo apt-get install x11vnc</code></p>
+</li>
+<li><p>设置vnc连接密码，根据提示输入密码并保存：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">charles<span class="annotation">@charles</span>-<span class="string">t400s:</span>~$ x11vnc -storepasswd</span><br><span class="line">Enter VNC <span class="string">password:</span> </span><br><span class="line">Verify <span class="string">password:</span>    </span><br><span class="line">Write password to <span class="regexp">/home/</span>charles<span class="regexp">/.vnc/</span>passwd?  [y]/n y</span><br><span class="line">Password written to: <span class="regexp">/home/</span>charles<span class="regexp">/.vnc/</span>passwd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动vncserver:</p>
+<ul>
+<li><p>后台自动启动</p>
+<ul>
+<li><code>sudo cp ~/.vnc/passwd /etc/x11vnc.pass</code></li>
+<li>创建/etc/init/x11vnc.conf文件，内容如下：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">start</span> <span class="keyword">on</span> login-<span class="keyword">session</span>-<span class="keyword">start</span></span><br><span class="line">script</span><br><span class="line">       x11vnc -display :<span class="number">0</span> -auth /<span class="keyword">var</span>/run/lightdm/root/:<span class="number">0</span> -forever -bg -o /<span class="keyword">var</span>/<span class="keyword">log</span>/x11vnc.<span class="keyword">log</span> -rfbauth /etc/x11vnc.pass -rfbport <span class="number">5900</span>  </span><br><span class="line"><span class="keyword">end</span> script</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>单次手动启动: <code>x11vnc -forever -shared -rfbauth ~/.vnc/passwd</code></p>
+</li>
+</ul>
+</li>
+<li><p>重启ubuntu系统，再在Windows上用vnc viewer登陆。输入VNC Server名字-IP地址：端口号，后再输入设置vnc的连接密码</p>
+</li>
+</ol>
+<p>常用的x11vnc命令</p>
+<ul>
+<li><code>x11vnc -kill :1</code>, 杀掉1号端口的vnc server进程</li>
+</ul>
+<h1 id="u57FA_u7840_u8F6F_u4EF6"><a href="#u57FA_u7840_u8F6F_u4EF6" class="headerlink" title="基础软件"></a>基础软件</h1><p>下面是本人经常使用的软件：</p>
+<ul>
+<li>搜狗输入法:先安装fcitx版本： <code>sudo apt-get install fcitx</code>，再下载32位或64位的Ubuntu deb版<a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="external">搜狗输入法</a></li>
+<li>办公软件： <a href="http://community.wps.cn/download/" target="_blank" rel="external">WPS for Linux</a> + Ocular阅读器</li>
+<li>影音播放： Audacious + VLC + <a href="http://smplayer.sourceforge.net/en/downloads" target="_blank" rel="external">SMPlayer</a>结合使用</li>
+<li>浏览器：<a href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html" target="_blank" rel="external">Google Chrome</a> + 扩展插件(Proxy SwitchSharp、Vimium、Adblock)+App(安装QQ、微信，特别建议在Windows的Chrome浏览器安装vnc viewer,如下图所示)</li>
+</ul>
+<p><img src="http://images.cnitblog.com/blog/678327/201501/081811042038569.png" alt=""></p>
+<ul>
+<li>截图工具：shutter(<code>sudo apt-get install shutter</code>)</li>
+<li>跨平台思维导图： <a href="http://www.xmind.net/download/linux/" target="_blank" rel="external">XMind</a></li>
+<li>Markdown编辑器： <a href="http://pad.haroopress.com/user.html" target="_blank" rel="external">haroopad</a></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://charlesxiong.github.io/2015/12/15/安装Ubuntu-14-10后要做的事-上-——基础软件篇/" data-title="安装Ubuntu 14.10后要做的事(上)——基础软件篇 | Dev的技术博客" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/12/15/搭建静态博客二三事/"  title="搭建Hexo静态博客二三事">
+ <strong>下一篇：</strong><br/> 
+ <span>搭建Hexo静态博客二三事
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/12/15/安装Ubuntu-14-10后要做的事-上-——基础软件篇/" data-title="安装Ubuntu 14.10后要做的事(上)——基础软件篇" data-url="http://charlesxiong.github.io/2015/12/15/安装Ubuntu-14-10后要做的事-上-——基础软件篇/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u66F4_u65B0_u8F6F_u4EF6_u6E90"><span class="toc-number">1.</span> <span class="toc-text">更新软件源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux_u6253_u5F00_u6587_u672C_u6587_u4EF6_u4E71_u7801"><span class="toc-number">2.</span> <span class="toc-text">linux打开文本文件乱码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5F00_u673A_u81EA_u52A8_u52A0_u8F7DWindows_u5206_u533A"><span class="toc-number">3.</span> <span class="toc-text">开机自动加载Windows分区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8FDC_u7A0B_u767B_u9646_u4E3B_u673A"><span class="toc-number">4.</span> <span class="toc-text">远程登陆主机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh_u547D_u4EE4_u884C_u767B_u9646"><span class="toc-number">4.1.</span> <span class="toc-text">ssh命令行登陆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8FDC_u7A0B_u754C_u9762_u767B_u9646_u670D_u52A1_u5668"><span class="toc-number">4.2.</span> <span class="toc-text">远程界面登陆服务器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u57FA_u7840_u8F6F_u4EF6"><span class="toc-number">5.</span> <span class="toc-text">基础软件</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/博客/" title="博客">博客<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Charles Xiong">Charles Xiong</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xcharles"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<script>
+var option = {
+  engineKey: 'f6c91960ef66032403e4231ed9d5b61c53486284'
+};
+(function(w,d,t,u,n,s,e){
+  s = d.createElement(t);
+  s.src = u;
+  s.async = 1;
+  w[n] = function(r){
+    w[n].opts = r;
+  };
+  e = d.getElementsByTagName(t)[0];
+  e.parentNode.insertBefore(s, e);
+})(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+_ts(option);
+</script>
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
