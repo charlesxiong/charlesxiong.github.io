@@ -1,6 +1,6 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
@@ -11,25 +11,18 @@
     
 
     
-    <meta name="description" content="一直在路上">
+    <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="XCharles">
 <meta property="og:url" content="http://charlesxiong.github.io/index.html">
 <meta property="og:site_name" content="XCharles">
-<meta property="og:description" content="一直在路上">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XCharles">
-<meta name="twitter:description" content="一直在路上">
+<meta name="twitter:description">
 
     
-    <link rel="alternative" href="/atom.xml" title="XCharles" type="application/atom+xml">
     
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -39,33 +32,30 @@
       
 <div>
 		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="XCharles" title="XCharles"/></a>
-			</div>
-			
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="XCharles">XCharles</a></h1>
-				<h2 class="blog-motto"></h2>
+				<h2 class="blog-motto">一直在路上</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
 					<ul>
 					 
-						<li><a href="/">Home</a></li>
+						<li><a href="/">主页</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/archives">归档</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/about">简介</a></li>
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:charlesxiong.github.io">
-					</form>
+						<form class="search">
+							<label>Search</label>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -81,110 +71,35 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/15/learn-stl/" title="learn-stl" itemprop="url">learn-stl</a>
+      <a href="/2015/12/15/使用静态博客二三事/" title="搭建Hexo静态博客二三事" itemprop="url">搭建Hexo静态博客二三事</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Charles Xiong" target="_blank" itemprop="author">Charles Xiong</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-15T06:50:20.000Z" itemprop="datePublished"> 發表於 2015-12-15</time>
+    <time datetime="2015-12-15T11:02:05.000Z" itemprop="datePublished"> 发表于 2015-12-15</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <hr>
-<h1 id="1__u4ECB_u7ECD"><a href="#1__u4ECB_u7ECD" class="headerlink" title="1 介绍"></a>1 介绍</h1><p>STL是由Alexander Stepanov等人在1979年于HP实验室开发出来的，随后于1994年正式成为C++的标准模板库。它在设计之初就依据泛型思维提供泛型化的抽象算法(后促使C++引入了template模板机制，C++的部分特性和泛型思想相互促进，使得STL的C++实现既达到了泛型化的目标又保持了高效率地操作），独立于对应的数据结构，用于以相同或相近的方式处理各种不同的情形。</p>
-<p>它以抽象概念为主体的结构形成了一个严谨的接口标准，在此接口下，任何组件都有最大的独立性，并以所谓的迭代器粘合起来，或以所谓的适配器配接起来，或以所谓访函数functor动态选择某种策略。从这个角度看，STL不是面向对象的，<strong>它主要依赖于模板(泛型GP)而不是面向对象OOP的封装、继承、多态。在STL中你找不到任何明显的类继承关系，这也使得STL具有高度的可重用性和可移值性。并且由于STL大量使用内联模板函数通过在编译时至少使用-O优化能够保证生成的代码高效率</strong></p>
-<p>该库包含了计算机领域最基本最常用的数据结构和算法，准确的说STL提供了六大组件：</p>
-<ul>
-<li><p>容器：涵盖各种数据结构，<strong>根据数据在容器的排列特性，分序列式容器如vector、list、deque、priority-queue，关联式容器如set、map、hashtable、hash_set、hash_map等</strong>。从实现角度看，容器是一种模板类class template</p>
-</li>
-<li><p>算法：涵盖各种算法如sort,search,permutation及用于数据移动、复制、删除、比较等算法。有些特定的算法与特定的数据结构有关，有些则是通用算法。<strong>从实现角度看，算法是用于操作容器中的数据的模板函数function template</strong></p>
-</li>
-<li><p>迭代器：提供访问容器中对象的方法，所有容器都附有自己专属的迭代器，是所谓的泛型指针，共有5种类型。从实现角度看，迭代器是一种将operator*,operator-&gt;,operator++,operator–等指针相关操作予以重载的模板类对象.C++原生指针其实也是一种迭代器。</p>
-</li>
-<li><p>仿函数: 又称函数对象function objects,以template参数来指定算法的某种行为策略。从实现角度看，仿函数是一种重载了operator()的class template,使用的时候只需要在仿函数对象后添加一对小括号即可。函数指针也可认为狭义的仿函数，现在一般多用Lambda表达式进行捕获和返回</p>
-</li>
-<li><p>适配器：<strong>用来修饰容器或仿函数或迭代器接口的东西。</strong> 应用于容器，称为container adpaters,例如stack,queue看似容器实际上是容器适配器，它们均是以deque作为底部容器，所有的操作都由底层deque供应，实现自己的操作；应用于迭代器，称为iterator adpaters,例如insert iterators,reverse iterators;应用于仿函数，称为functor adpaters</p>
-</li>
-<li><p>配置器： 负责空间配置与管理。从实现角度看，它是一个实现动态空间配置、申请、分配、释放的class template,它体现了对管理容器元素的一种内存模型，隐藏在所有组件的背后，提供了对内存管理的统一接口操作。空间配置器有2种，第一种是直接使用原生的malloc和free等执行实际的内存配置、释放等操作，第二种是采取一个策略，超过128bytes的移交第一种，需求内存小于128bytes的时候采用memory pool来管理内存</p>
-</li>
-</ul>
-<p>图1显示了STL六大组件的交互关系：Container通过Allocator取得数据存储空间，Algorithm通过Iterator存取Container内容，Functor可以协助Algorithm完成不同的策略变化，Adapter可以修饰或套接Functor</p>
-<p><center><strong>图1 STL组件交互关系</strong> </center><br><img src="http://images.cnitblog.com/blog/678327/201410/281529157841859.jpg" alt=""></p>
-<p>对于我们使用者来说，学习STL有三层境界。</p>
-<ol>
-<li>会用：运用STL，了解基本的算法、容器和迭代器。实际上在运用前，最好对C++ template机制（class templates,function templates,member templates,specialization）、operator overloading操作符重载机制要有所熟悉</li>
-<li>明理：通过阅读STL源代码，了解各组件的实现机制，如常用数据结构、算法和内存管理等，熟悉泛型技术的内涵和STL的学理。源码之前，了无秘密</li>
-<li>能扩展：当STL不能满足我们的需求之时，我们必须有能力动手写一个可融入STL体系中的软件组件，这个就是最高境界，需要对源码有着深刻的理解。比如实现跳表skiplist、伸展树splay tree、B+树等</li>
-</ol>
-<p>因而接下来的过程就需要循序渐进，从会用到理解背后的机制再到灵活扩展，这需要我们下很大的功夫去学习和总结</p>
-<hr>
-<h1 id="2_SGI_STL_u6587_u4EF6_u5206_u5E03"><a href="#2_SGI_STL_u6587_u4EF6_u5206_u5E03" class="headerlink" title="2 SGI STL文件分布"></a>2 SGI STL文件分布</h1><p>根据C++ Standard的规定，所有标准头文件都不再有扩展名。因而在使用STL时需要严格遵守C++规范，使用无扩展名的头文件。那下面就以GNU C++所附的<a href="http://www.sgi.com/tech/stl/" target="_blank" rel="external">SGI STL</a>为例进行说明。</p>
-<p>SGI版本是由Sillicon Computer System,Inc公司发展，继承HP版本。可以看到每个头文件的说明中均有HP和SGI的版权声明，这个SGI版本被GCC采用，由于该版本在编程风格和源码组织方式上可读性比较高，加上有Alexander和Matt坐镇编写代码，因而个人选择最新的 <a href="http://www.sgi.com/tech/stl/download.html" target="_blank" rel="external">SGI STL-v3.3</a>作为阅读STL的源码。图2所示为SGI STL的所有文件(注：实际上有91个文件，少了一个vector.h)：</p>
-<p><center><strong>图2 SGI STL文件</strong> </center><br><img src="http://images.cnitblog.com/blog/678327/201410/281556165037553.png" alt=""></p>
-<p>SGI STL文件大致分为3组：</p>
-<ul>
-<li>STL标准头文件(无头文件)，例如bitset,vector,list,deque,set,map,algorithm,functional等</li>
-<li>C++ Standard定案前，HP所规范的STL头文件，例如bvector.h,vector.h,list.h,deque.h,algo.h等</li>
-<li>SGI STL内部文件(STL真正实现于此)，例如stl_algo.h,stl_vector.h,stl_list.h,stl_map.h等</li>
-</ul>
-<p>不同的编译器对C++语言的支持程度不尽相同，作为一个希望具备广泛移植能力的程序库，SGI STL提供了一个环境组态设置文件<code>&lt;stl_config.h&gt;</code>,其中定义了很多宏常量，根据你所运行的系统设定不同常量，从而可以移植于多平台上。</p>
-<hr>
-<h1 id="3_STL_u4F7F_u7528_u7B80_u660E_u6307_u5357"><a href="#3_STL_u4F7F_u7528_u7B80_u660E_u6307_u5357" class="headerlink" title="3 STL使用简明指南"></a>3 STL使用简明指南</h1><h2 id="3-0__u4F7F_u7528C++11_u65B0_u7279_u6027"><a href="#3-0__u4F7F_u7528C++11_u65B0_u7279_u6027" class="headerlink" title="3.0 使用C++11新特性"></a>3.0 使用C++11新特性</h2><h2 id="3-1_vector"><a href="#3-1_vector" class="headerlink" title="3.1 vector"></a>3.1 vector</h2><p><strong>A vector定义和初始化</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*默认ctor*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1; </span><br><span class="line"></span><br><span class="line"><span class="comment">/*只与顺序容器大小相关的ctor,接受一个容器大小和一个(可选的)元素初始值，关联容器并不接受大小参数*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(<span class="number">10</span>); <span class="comment">//v1中有10个元素，元素进行值初始化均为0 </span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; v1(<span class="number">10</span>,<span class="string">'a'</span>); <span class="comment">//创建一个含10个值为'a'的字符vecto</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*使用初始化列表来显示初始化容器元素的值*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; authors = &#123;<span class="string">"Milton"</span>,<span class="string">"Shakespear"</span>,<span class="string">"Austin"</span>&#125;; <span class="comment">//使用初始化列表来初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; init&#123;<span class="string">"vector"</span>,<span class="string">"list"</span>,<span class="string">"forward_list"</span>,<span class="string">"stack"</span>&#125;; <span class="comment">//另外一种初始化列表方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*将一个容器初始化为另外一个容器的拷贝，要么直接拷贝，要么给定一个迭代器范围*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(<span class="number">20</span>,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2(v1); <span class="comment">//v2初始化为v1的拷贝，要求两容器类型相同，元素类型相同</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2 = v1; </span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; words(authors.begin(),authors.end()); <span class="comment">//要求迭代器元素类型与vector元素类型相容即可</span></span><br></pre></td></tr></table></figure>
-<p><strong>B 赋值和swap操作</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*有两个版本: 接受一个迭代器范围，从一个不同但相容的类型赋值;接受一个指定数组和元素值替换原始元素*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1;</span><br><span class="line">v1.assign(<span class="number">10</span>,-<span class="number">1</span>); <span class="comment">//v1中有10个元素，都是-1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; names;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span> *&gt;  oldstyle;</span><br><span class="line">names.assign(oldstyle.cbegin(),oldstyle.cend()); <span class="comment">//两元素类型相同，可将const char *转换为string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*成员版本的swap和非成员版本的swap*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2&#123;<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">v1.swap(v2); <span class="comment">//v1: 4 5; v2: 1 2 3</span></span><br><span class="line">swap(v1,v2);<span class="comment">//推荐统一使用非成员版本的swap</span></span><br></pre></td></tr></table></figure>
-<p>注意几点:</p>
-<ol>
-<li>swap操作元素本身并未交换，它只是交换了两个容器的内部数据结构，并未移动任何元素。除了string外，指向容器的迭代器、引用和指针在swap操作后都不会失效，仍然指向swap操作前的元素。<strong>推荐看《Effective C++》的条款25: 考虑写出一个不抛异常的swap函数</strong></li>
-<li><p>早期标准库中只提供成员函数版本的swap,新标准添加了非成员版本的swap。建议统一使用非成员版本的swap</p>
-</li>
-<li><p>当用对象来初始化或者赋值容器元素等情形时，实际上容器中的元素是对象的拷贝并非对象本身</p>
-</li>
-<li>调用以迭代器范围为参数的构造函数或者assign函数，通常比调用默认构造函数后再单独插入容器性能更好</li>
-</ol>
-<p><strong>C 大小和容量调整操作</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v1.size() &lt;&lt; v1.capacity() &lt;&lt; v1.empty() &lt;&lt; endl; <span class="comment">// 0 0 1</span></span><br><span class="line"></span><br><span class="line">v1 = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v1.size() &lt;&lt; v1.capacity() &lt;&lt; v1.empty() &lt;&lt; endl;<span class="comment">//5 5 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*对比测试下使用push_back、resize、reserve函数容量大小增长策略，*/</span></span><br><span class="line"><span class="comment">//v1.push_back(2); //6 10 0</span></span><br><span class="line"><span class="comment">//v1.resize(8); // 8 10 0</span></span><br><span class="line"><span class="comment">//v1.reserve(8); // 5 8 0</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v1.size() &lt;&lt; v1.capacity() &lt;&lt; v1.empty() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-<p>一个完整的分析例子如下:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iv;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"size := "</span> &lt;&lt; iv.size() &lt;&lt; <span class="string">" capacity := "</span> &lt;&lt; iv.capacity() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加20个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> ix = <span class="number">0</span>; ix != <span class="number">20</span>;ix++) &#123;</span><br><span class="line">	iv.push_back(ix);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size := "</span> &lt;&lt; iv.size() &lt;&lt; <span class="string">" capacity := "</span> &lt;&lt; iv.capacity() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//严格按照reserve预分配一些额外空间</span></span><br><span class="line">iv.reserve(<span class="number">40</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"size := "</span> &lt;&lt; iv.size() &lt;&lt; <span class="string">" capacity := "</span> &lt;&lt; iv.capacity() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加元素用光多余容量</span></span><br><span class="line"><span class="keyword">while</span>(iv.size() != iv.capacity()) &#123;</span><br><span class="line">	iv.push_back(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"size := "</span> &lt;&lt; iv.size() &lt;&lt; <span class="string">" capacity := "</span> &lt;&lt; iv.capacity() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//再添加一个元素，vector就得重新分配空间了</span></span><br><span class="line">iv.push_back(<span class="number">23</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"size := "</span> &lt;&lt; iv.size() &lt;&lt; <span class="string">" capacity := "</span> &lt;&lt; iv.capacity() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span>;i++)</span><br><span class="line">	v1.push_back(i); <span class="comment">//建议直接用列表初始化，这里是为了演示大小和容量不同时swap的效果</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v1.size() &lt;&lt; v1.capacity() &lt;&lt; v1.empty() &lt;&lt; endl; <span class="comment">// 6 8 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*使用成员版本的swap*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(v1).swap(v1); <span class="comment">//6 6 0</span></span><br><span class="line"><span class="comment">//vector&lt;int&gt;().swap(v1); //0 0 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*使用非成员版本的swap,结果同上*/</span></span><br><span class="line"><span class="comment">//vector&lt;int&gt; v2;</span></span><br><span class="line"><span class="comment">//vector&lt;int&gt; v2(v1);</span></span><br><span class="line"><span class="comment">//swap(v2,v1);</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v1.size() &lt;&lt; v1.capacity() &lt;&lt; v1.empty() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-<p>总结以下几点:</p>
-<ol>
-<li><p>vector的push_back函数和resize函数的策略是<strong>如果当前大小超过当前的容量时vector才重新分配内存空间，一般是将当前容量翻倍。</strong>在STL的vector实现中可以看到push_back和resize都用到了内部的insert_aux函数，这个函数需要处理若当前容量不足以容纳新元素情形的重新分配策略- 分配新内存，移动数据，删除旧数据。这是一种指数级的扩大容量策略，因此重新分配和复制的次数随着容量的增长而迅速减少</p>
-</li>
-<li><p>如果要对此增长进行微调，则调用reserve函数。它是指预先分配一定大小的内存空间，如果空间足够的话无论是push_back、insert、insert等永远都不会触发重新分配</p>
-</li>
-<li><p>有些容器例如vector、string、deque等可能最后有一些不再需要的多余容量，惯用策略是使用swap trick。这是一种非常巧妙的shrink-to-fit用法，但它对具有COW(写时复制)策略的std::string并不使用，这一般用<code>string(s.begin(),s.end()).swap(s)或者s.reserve(0)</code>;</p>
-</li>
-</ol>
-<p><strong>D 访问元素</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">7</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> &amp;c = v1.front(); <span class="comment">//返回首元素的引用，若v1为空函数行为未定义</span></span><br><span class="line">c = <span class="number">8</span>;<span class="comment">//修改了首元素</span></span><br><span class="line">v1.back();<span class="comment">//返回尾元素的引用，若v1为空函数行为未定义</span></span><br><span class="line">v1[<span class="number">2</span>]; <span class="comment">//返回下标位置的元素引用，若下标越界函数行为未定义</span></span><br><span class="line">v1.at(<span class="number">2</span>);<span class="comment">//返回指定位置的元素引用，但使用at更安全，越界时会抛出异常</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v2[<span class="number">0</span>] &lt;&lt; endl;　<span class="comment">//运行时错误直接Segment Fault</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; v2.at(<span class="number">0</span>) &lt;&lt; endl;<span class="comment">//抛出异常terminate called after throwing an instance of 'std::out_of_range'</span></span><br></pre></td></tr></table></figure>
-<p>注意两点:</p>
-<ol>
-<li>这些访问元素操作都返回的是引用，如果要修改该变量值必须将变量定义为引用类型</li>
-<li>除了at函数提供有效的下标越界检查外其他都不提供有效下标检查。这些操作只能用于访问已存在的元素不能用于添加元素(vector、string都是)。</li>
-</ol>
-<p><strong>E 添加、删除元素</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加操作</span></span><br><span class="line"><span class="comment">// push_back(val): 在vector尾部添加一个元素</span></span><br><span class="line"><span class="comment">// insert(iter,val): 在迭代器iter前添加元素val,返回指向该元素的迭代器</span></span><br><span class="line"><span class="comment">// insert(iter,num,val): 在迭代器iter前添加num个val，返回第一个添加元素的迭代器</span></span><br><span class="line"><span class="comment">// insert(iter,&#123;val-list&#125;): 新特性，在迭代器iter前面添加有花括号包围的元素值列表，返回第一个添加元素的迭代器</span></span><br><span class="line"><span class="comment">// insert(iter,start,end): 在迭代器iter前添加[start,end)的所有元素,要求后者不能是前面vector中的元素</span></span><br><span class="line"><span class="comment">// 注意新标准下的insert函数都是返回对应元素的迭代器，以前的有返回void有返回迭代器</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(<span class="number">3</span>,<span class="number">1</span>);</span><br><span class="line">v1.push_back(<span class="number">8</span>); <span class="comment">//v1: 1 1 1 8</span></span><br><span class="line"></span><br><span class="line">v1.insert(v1.begin(),<span class="number">100</span>); <span class="comment">//v1: 100 1 1 1 8</span></span><br><span class="line">v1.insert(v1.end(),<span class="number">2</span>,<span class="number">4</span>); <span class="comment">//v1: 100  1 1 1 8 4 4</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;　v2&#123;<span class="number">4</span>,<span class="number">6</span>&#125;;</span><br><span class="line">v1.insert(v1.begin(),v2.begin(),v2.end()); <span class="comment">//v1: 4 6 100...4</span></span><br></pre></td></tr></table></figure>
-<p>以上除了元素值列表都是C++11标准前的函数(vector中未提供push_front)，可以看到对于值类型这些操作是很高效的，那对于对象类型呢？</p>
-<p>前面说到了容器中所有的对象元素都是拷贝，对于大型对象的操作拷贝则显得不是那么高效，所以新标准引入了三个新成员-emplace_back、emplace_front、emplace，这些操作是直接构造元素而不是拷贝，这和前面的操作一一对应的（vector中没有emplace_front）。当我们调用emplace成员函数时是在容器中直接构造对象，而push或insert等操作则会创建一个临时局部对象，并将其压入容器中。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> item&#123;</span><br><span class="line">	<span class="built_in">string</span> name;</span><br><span class="line">	<span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">double</span> price;</span><br><span class="line">	item(<span class="built_in">string</span> _name,<span class="keyword">int</span> _id,<span class="keyword">double</span> _price = <span class="number">0.0</span>):</span><br><span class="line">		name(_name),id(_id),price(_price) &#123;&#125;</span><br><span class="line">&#125; ;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> item <span class="keyword">item_t</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">item_t</span>&gt; v1&#123;&#123;<span class="string">"Fruit"</span>,<span class="number">0</span>&#125;&#125;; </span><br><span class="line">v1.emplace_back(<span class="string">"Apple"</span>,<span class="number">1</span>,<span class="number">2.5</span>);</span><br><span class="line">v1.emplace(v1.begin(),<span class="string">"Banana"</span>,<span class="number">3</span>,<span class="number">4.3</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> iter = v1.begin();iter != v1.end();++iter)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; iter-&gt;name &lt;&lt;<span class="string">" "</span> &lt;&lt; iter-&gt;id &lt;&lt; <span class="string">" "</span> &lt;&lt; iter-&gt;price &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果:</span></span><br><span class="line"><span class="comment">// Banana 3 4.3</span></span><br><span class="line"><span class="comment">// Fruit 0 0</span></span><br><span class="line"><span class="comment">// Apple 1 2.5</span></span><br></pre></td></tr></table></figure>
-<p>所以为了避免在容器中使用低效率的大对象拷贝，建议无论是值类型还是对象类型，vector多使用emplace_back和emplace函数直接构造对象。</p>
-<p>如下为删除操作:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除操作</span></span><br><span class="line"><span class="comment">// pop_back(): 删除vector中尾元素。若容器为空函数行为未定义</span></span><br><span class="line"><span class="comment">// erase(iter): 删除指定位置的元素，返回被删之后的下一个元素的迭代器</span></span><br><span class="line"><span class="comment">// erase(start,end): 删除区间[start,end)中的所有元素</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1&#123;<span class="number">4</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">v1.pop_back();</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> iter = find(v1.begin(),v1.end(),<span class="number">2</span>);</span><br><span class="line">v1.erase(iter);</span><br></pre></td></tr></table></figure>
-<p>erase成员函数一般多结合泛型算法find、remove、remove_if、unique等来使用，在后面泛型算法如何使用lambda表达式中会详细说明</p>
-
+        <p>最近实在无力吐槽博客园里Markdown的编辑功能，写一个技术博客各种排版问题，听说Hexo内置Markdown并且界面简洁好用，所以今天花了一下午时间基于Hexo快速生成了一个静态博客，下面总结一些重要的细节。</p>
         
         
         <p class="article-more-link">
+          
+            <a href="/2015/12/15/使用静态博客二三事/#more">Read More</a>
           
        </p>
     </div>
     <footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/博客/">博客</a>
+</div>
 
 
 </div>
@@ -194,63 +109,8 @@
 
 <div class="comments-count">
 	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/12/15/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Charles Xiong" target="_blank" itemprop="author">Charles Xiong</a>
-		
-  <p class="article-time">
-    <time datetime="2015-12-15T05:02:24.000Z" itemprop="datePublished"> 發表於 2015-12-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+	  	<span></span>
+		<a href="/2015/12/15/使用静态博客二三事/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/12/15/使用静态博客二三事/" data-count-type="comments">&nbsp;</a>
 	
 </div>
 
@@ -266,48 +126,22 @@
 
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
-
-
-  
-
-  
-
-  <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/博客/" title="博客">博客<sup>1</sup></a></li>
+		  
+		
+		</ul>
 </div>
 
 
@@ -316,20 +150,8 @@
     </div>
     <footer><div id="footer" >
 	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
 	
-	
-	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
-	</section>
-	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		
@@ -343,6 +165,12 @@
 	</div>
 			
 		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
 
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
@@ -406,6 +234,18 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xcharles"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
 
 
 
@@ -439,16 +279,6 @@ $(document).ready(function(){
 
 
 
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
 
 
 <!-- Analytics End -->
@@ -456,7 +286,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
@@ -465,10 +295,56 @@ var _hmt = _hmt || [];
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 <!-- MathJax End -->
 
 <!-- Tiny_search Begin -->
+
+<script>
+var option = {
+  engineKey: 'f6c91960ef66032403e4231ed9d5b61c53486284'
+};
+(function(w,d,t,u,n,s,e){
+  s = d.createElement(t);
+  s.src = u;
+  s.async = 1;
+  w[n] = function(r){
+    w[n].opts = r;
+  };
+  e = d.getElementsByTagName(t)[0];
+  e.parentNode.insertBefore(s, e);
+})(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+_ts(option);
+</script>
 
 <!-- Tiny_search End -->
 
