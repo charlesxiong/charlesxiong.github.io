@@ -1,0 +1,683 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>安装Ubuntu 14.10后要做的事(下)——开发工具篇 | Dev的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Charles Xiong">
+    
+
+    
+    <meta name="description" content="由于平时主要在Ubuntu上工作,折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu的常见问题,分为两部分,第二部分是开发工具的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装Ubuntu 14.10后要做的事(下)——开发工具篇">
+<meta property="og:url" content="http://charlesxiong.github.io/2015/12/21/安装Ubuntu-14-10后要做的事-下-——开发工具篇/index.html">
+<meta property="og:site_name" content="Dev的技术博客">
+<meta property="og:description" content="由于平时主要在Ubuntu上工作,折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu的常见问题,分为两部分,第二部分是开发工具的使用。">
+<meta property="og:image" content="http://images.cnitblog.com/blog/678327/201501/081757578128184.png">
+<meta property="og:image" content="https://travis-ci.org/charlesxiong/node-hello.svg?branch=master">
+<meta property="og:updated_time" content="2015-12-21T07:39:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装Ubuntu 14.10后要做的事(下)——开发工具篇">
+<meta name="twitter:description" content="由于平时主要在Ubuntu上工作,折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu的常见问题,分为两部分,第二部分是开发工具的使用。">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Dev的技术博客" title="Dev的技术博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Dev的技术博客">Dev的技术博客</a></h1>
+				<h2 class="blog-motto">在路上学习成长</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/about">简介</a></li>
+					
+					<li>
+ 					
+						<form class="search">
+							<label>Search</label>
+						<input type="text" id="ts-search-input" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/21/安装Ubuntu-14-10后要做的事-下-——开发工具篇/" title="安装Ubuntu 14.10后要做的事(下)——开发工具篇" itemprop="url">安装Ubuntu 14.10后要做的事(下)——开发工具篇</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Charles Xiong" target="_blank" itemprop="author">Charles Xiong</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-21T02:28:21.000Z" itemprop="datePublished"> 发表于 2015-12-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC_u73AF_u5883"><span class="toc-number">1.</span> <span class="toc-text">GCC环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u914D_u7F6EVim"><span class="toc-number">2.</span> <span class="toc-text">配置Vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sublime_text3"><span class="toc-number">3.</span> <span class="toc-text">Sublime text3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sublime_u65E0_u6CD5_u8F93_u5165_u4E2D_u6587"><span class="toc-number">3.1.</span> <span class="toc-text">sublime无法输入中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u4E9B_u5E38_u7528_u63D2_u4EF6"><span class="toc-number">3.2.</span> <span class="toc-text">一些常用插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u914D_u7F6EJava_u73AF_u5883"><span class="toc-number">4.</span> <span class="toc-text">配置Java环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5JRE"><span class="toc-number">4.1.</span> <span class="toc-text">安装JRE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5Eclipse"><span class="toc-number">4.2.</span> <span class="toc-text">安装Eclipse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u547D_u4EE4_u884C_u8FD0_u884CJava_u7A0B_u5E8F"><span class="toc-number">4.3.</span> <span class="toc-text">命令行运行Java程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u914D_u7F6E_u73AF_u5883_u53D8_u91CF"><span class="toc-number">4.3.1.</span> <span class="toc-text">配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u547D_u4EE4_u884C_u4F7F_u7528"><span class="toc-number">4.3.2.</span> <span class="toc-text">命令行使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5E38_u89C1_u5F00_u53D1_u5DE5_u5177"><span class="toc-number">4.4.</span> <span class="toc-text">常见开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js_u5F00_u53D1_u7BA1_u7406"><span class="toc-number">5.</span> <span class="toc-text">Node.js开发管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5Node-js"><span class="toc-number">5.1.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman_u3001Grunt_u548CBower"><span class="toc-number">5.2.</span> <span class="toc-text">Yeoman、Grunt和Bower</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u521B_u5EFA_u4E00_u4E2AAngular_Web_u9879_u76EE"><span class="toc-number">5.3.</span> <span class="toc-text">创建一个Angular Web项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI_u548C_u8986_u76D6_u7387_u6D4B_u8BD5"><span class="toc-number">5.4.</span> <span class="toc-text">CI和覆盖率测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EBF_u4E0A_u90E8_u7F72_u5E94_u7528"><span class="toc-number">5.5.</span> <span class="toc-text">线上部署应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python_u5F00_u53D1_u7BA1_u7406"><span class="toc-number">6.</span> <span class="toc-text">Python开发管理</span></a></li></ol>
+		
+		</div>
+		
+		<p>由于平时主要在Ubuntu上工作,折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu的常见问题,分为两部分,第二部分是开发工具的使用。</p>
+<a id="more"></a>
+<h1 id="GCC_u73AF_u5883"><a href="#GCC_u73AF_u5883" class="headerlink" title="GCC环境"></a>GCC环境</h1><ul>
+<li><p>g++编译器: <code>build-essential</code>是一套完整的软件包,它提供了编译程序必需的软件包列表信息,包括gcc,libc<br><code>sudo apt-get install build-essential</code></p>
+</li>
+<li><p>词法和语法分析器</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> flex</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> bison</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在64位系统上编译32位程序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> <span class="keyword">g</span>++-multilib</span><br><span class="line"><span class="keyword">g</span>++ -m32 -o xxx xxx.cpp //-m32选项将程序编译成<span class="number">32</span>位的应用</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="u914D_u7F6EVim"><a href="#u914D_u7F6EVim" class="headerlink" title="配置Vim"></a>配置Vim</h1><p>参考ma6174的<a href="https://github.com/ma6174/vim" target="_blank" rel="external">超强vim配置文件</a>,一键安装非常快速,省去了不少配置时间。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/ma6174/<span class="keyword">vim</span>/master/setup.<span class="keyword">sh</span> | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
+<p>运行截图: <img src="http://images.cnitblog.com/blog/678327/201501/081757578128184.png" alt=""></p>
+<p>主要是掌握它的快捷键命令：<br>a. 多窗口操作</p>
+<ul>
+<li>:sp + 文件名水平分割窗口</li>
+<li>:vs + 文件名垂直分割窗口</li>
+<li>Ctrl+w快速切换窗口</li>
+</ul>
+<p>b. Taglist和NerdTree</p>
+<ul>
+<li>F3：快速打开或关闭树形目录</li>
+<li>F9：查看当前代码结构及自动补全</li>
+</ul>
+<p>c. 其他</p>
+<ul>
+<li>F5：一键运行程序</li>
+<li>F6：代码格式化</li>
+<li>F8：调试C和C++</li>
+<li>F2：去除代码中的空行(个人觉得不实用)</li>
+</ul>
+<h1 id="Sublime_text3"><a href="#Sublime_text3" class="headerlink" title="Sublime text3"></a>Sublime text3</h1><p>首先要设置sublime的安装源<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:webupd8team/sublime-text-3</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install sublime-text</span><br></pre></td></tr></table></figure></p>
+<h2 id="sublime_u65E0_u6CD5_u8F93_u5165_u4E2D_u6587"><a href="#sublime_u65E0_u6CD5_u8F93_u5165_u4E2D_u6587" class="headerlink" title="sublime无法输入中文"></a>sublime无法输入中文</h2><ol>
+<li><p>安装C++的编译环境、gtk和libgtk2.0-dev</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> <span class="keyword">build</span>-essential</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> libgtk2<span class="number">.0</span>-dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写sublime_imfix.c</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;gtk/gtkimcontext.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_im_context_set_client_window</span> <span class="params">(GtkIMContext *context,</span><br><span class="line">          GdkWindow    *window)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  GtkIMContextClass *klass;</span><br><span class="line">  g_return_if_fail (GTK_IS_IM_CONTEXT (context));</span><br><span class="line">  klass = GTK_IM_CONTEXT_GET_CLASS (context);</span><br><span class="line">  <span class="keyword">if</span> (klass-&gt;set_client_window)</span><br><span class="line">    klass-&gt;set_client_window (context, window);</span><br><span class="line">  g_object_set_data(G_OBJECT(context),<span class="string">"window"</span>,window);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span>(!GDK_IS_WINDOW (window))</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">int</span> width = gdk_window_get_width(window);</span><br><span class="line">  <span class="keyword">int</span> height = gdk_window_get_height(window);</span><br><span class="line">  <span class="keyword">if</span>(width != <span class="number">0</span> &amp;&amp; height !=<span class="number">0</span>)</span><br><span class="line">    gtk_im_context_focus_in(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译成共享库</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -o libsublime-imfix<span class="class">.so</span> sublime_imfix<span class="class">.c</span>  `pkg-config --libs --cflags gtk+-<span class="number">2.0</span>` -fPIC</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝到/opt/sublime_text目录下<br>注意：/opt/sublime_text/不同版本可能有所不同,请调整为自己安装版本的路径</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">cp</span> libsublime-imfix.<span class="keyword">so</span> /<span class="keyword">opt</span>/sublime_text/libsublime-imfix.<span class="keyword">so</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改/usr/bin/subl文件,在第一行加入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> LD_PRELOAD=<span class="regexp">/opt/</span>sublime_text/libsublime-imfix.so</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改sublime-text.desktop(三处代码)</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[Desktop Entry]</span></span><br><span class="line"><span class="setting">Version=<span class="value"><span class="number">1.0</span></span></span></span><br><span class="line"><span class="setting">Type=<span class="value">Application</span></span></span><br><span class="line"><span class="setting">Name=<span class="value">Sublime Text</span></span></span><br><span class="line"><span class="setting">GenericName=<span class="value">Text Editor</span></span></span><br><span class="line"><span class="setting">Comment=<span class="value">Sophisticated text editor for code, markup and prose</span></span></span><br><span class="line"><span class="setting">Exec=<span class="value">/usr/bin/subl %F        #这里修改执行路径为/usr/bin/subl,subl文件刚才已经修改过,大家应该记得</span></span></span><br><span class="line"><span class="setting">Terminal=<span class="value"><span class="keyword">false</span></span></span></span><br><span class="line"><span class="setting">MimeType=<span class="value">text/plain;        </span></span></span><br><span class="line"><span class="setting">Icon=<span class="value">sublime-text</span></span></span><br><span class="line"><span class="setting">Categories=<span class="value">TextEditor;Development;</span></span></span><br><span class="line"><span class="setting">StartupNotify=<span class="value"><span class="keyword">true</span></span></span></span><br><span class="line"><span class="setting">Actions=<span class="value">Window;Document;</span></span></span><br><span class="line"><span class="title"></span><br><span class="line">[Desktop Action Window]</span></span><br><span class="line"><span class="setting">Name=<span class="value">New Window</span></span></span><br><span class="line"><span class="setting">Exec=<span class="value">/usr/bin/subl -n       #这里修改执行路径为/usr/bin/subl,subl文件刚才已经修改过,大家应该记得</span></span></span><br><span class="line"><span class="setting">OnlyShowIn=<span class="value">Unity;</span></span></span><br><span class="line"><span class="title"></span><br><span class="line">[Desktop Action Document]</span></span><br><span class="line"><span class="setting">Name=<span class="value">New File</span></span></span><br><span class="line"><span class="setting">Exec=<span class="value">/usr/bin/subl new_file    #这里修改执行路径为/usr/bin/subl,subl文件刚才已经修改过,大家应该记得</span></span></span><br><span class="line"><span class="setting">OnlyShowIn=<span class="value">Unity;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="u4E00_u4E9B_u5E38_u7528_u63D2_u4EF6"><a href="#u4E00_u4E9B_u5E38_u7528_u63D2_u4EF6" class="headerlink" title="一些常用插件"></a>一些常用插件</h2><ol>
+<li><p>安装Package Control<br>使用Ctrl+~快捷键,输入下面一段代码：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = </span><br><span class="line">sublime.installed_packages_path(); urllib.request.install_opener( </span><br><span class="line">urllib.request.build_opener( urllib.request.ProxyHandler()) ); </span><br><span class="line">open(os.path.<span class="keyword">join</span>(ipp, pf), <span class="string">'wb'</span>).<span class="keyword">write</span>(urllib.request.urlopen( </span><br><span class="line"><span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="keyword">read</span>())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ctrl+Shift+P选择Install Package</p>
+</li>
+</ol>
+<ul>
+<li>中文乱码：GBK Encoding Support+Codecs33 package,ConvertToUTF8(在创建html文件时有干扰)</li>
+<li>阅读源代码: ctags(需要先安装ctags)</li>
+<li>编写Web前端代码：Emmet</li>
+<li>侧栏右键功能增强：SideBar + Side Bar Git</li>
+<li>代码对齐和自动补齐：Alignment + CodeIntel</li>
+<li>其他：查找代码中的错误linter</li>
+</ul>
+<h1 id="u914D_u7F6EJava_u73AF_u5883"><a href="#u914D_u7F6EJava_u73AF_u5883" class="headerlink" title="配置Java环境"></a>配置Java环境</h1><h2 id="u5B89_u88C5JRE"><a href="#u5B89_u88C5JRE" class="headerlink" title="安装JRE"></a>安装JRE</h2><ol>
+<li><p>下载对应的<a href="http://java.com/en/download/manual.jsp" target="_blank" rel="external">JRE版本</a>,假定是jre1.7</p>
+</li>
+<li><p>将JRE的解压子目录安装在<code>/opt/java</code>目录下,执行如下命令</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /<span class="keyword">opt</span>/java</span><br><span class="line"><span class="keyword">cd</span> java</span><br><span class="line">sudo tar -zxvf~/Downloads/jre-<span class="number">7</span>u51-linux-i586.tar.gz /<span class="keyword">opt</span>/java/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置JRE1.7.0为默认的Java运行时环境</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="operator"><span class="keyword">update</span>-alternatives  <span class="comment">--install  "/usr/bin/java"  "java"  "/opt/java/jre1.7.0_51/bin/java"  1 </span></span><br><span class="line">sudo <span class="keyword">update</span>-alternatives  <span class="comment">--set  java   /opt/java/jre1.7.0_51/bin/java</span></span><br><span class="line"></span><br><span class="line"># 命令行输出如下信息表示设置成功</span><br><span class="line"><span class="keyword">update</span>-alternatives : <span class="keyword">using</span> /opt/<span class="keyword">java</span>/jre1<span class="number">.7</span><span class="number">.0</span>_51/<span class="keyword">bin</span>/<span class="keyword">java</span> <span class="keyword">to</span> provide /usr/<span class="keyword">bin</span>/<span class="keyword">java</span> (<span class="keyword">java</span>)<span class="keyword">in</span> <span class="keyword">manual</span> <span class="keyword">mode</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检测是否安装成功,执行<code>java -version</code>,安装成功输出如下信息</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">"1.7.0_51"</span></span><br><span class="line">Java<span class="list">(<span class="keyword">TM</span>)</span> SE RuntimeEnvironment <span class="list">(<span class="keyword">build</span> <span class="number">1.7</span>.<span class="number">0</span>_51-b13)</span></span><br><span class="line">Java HotSpot<span class="list">(<span class="keyword">TM</span>)</span> ServerVM <span class="list">(<span class="keyword">build</span> <span class="number">24.51</span>-b03, mixed mode)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="u5B89_u88C5Eclipse"><a href="#u5B89_u88C5Eclipse" class="headerlink" title="安装Eclipse"></a>安装Eclipse</h2><ol>
+<li><p>下载最新的<a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">Eclipse版本</a></p>
+</li>
+<li><p>解压文件并置于/opt目录下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf eclipse-standard-kepler-SR2-linux-gtk<span class="class">.tar</span><span class="class">.gz</span> ~/</span><br><span class="line">sudo cp -ar eclipse /opt/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>设置Eclipse环境</strong></p>
+<ul>
+<li><p>编码格式: Win下默认为gbk,Linux下默认为utf-8。为保持一致,所有系统下Eclipse的编码格式均应为UTF-8,修改以下位置的信息：<code>Windows-&gt;Workspace -&gt;Text file encoding</code>和<code>Windows-&gt;Content Type-&gt;Text,Java Source file</code></p>
+</li>
+<li><p>Color theme插件: 在<code>Help-&gt;Eclipse Marketplace</code>中下载安装Color theme plugin,在<code>Window-&gt;General-&gt;Color Theme</code>中选择主题,个人比较喜欢sublime Text样式</p>
+</li>
+<li><p>ExploreFS: 右键打开文件位置</p>
+</li>
+<li><p>Pydev插件: 配置Python的开发环境</p>
+</li>
+<li><p><a href="http://marketplace.eclipse.org/content/devutils#.Uz-aF1SSw38" target="_blank" rel="external">dev-utils</a> </p>
+</li>
+<li><p>CDT插件: 如果C++程序编译时出现无法解析头文件等情况,显示<code>Unresolved inclusion</code>问题</p>
+<blockquote>
+<p>原因是没有指定Eclipse的C和C++的目录,可以通过设定Eclipse中<code>C_INCLUDE_PATH</code>和<code>CPP_INCLUDE_PATH</code> 两个环境变量指定头文件目录。可在 <code>Window -&gt; Preferences -&gt; C/C++ -&gt; Environment</code> 中添加这两个变量</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C_INCLUDE_PATH 设为 /usr/<span class="keyword">include</span></span><br><span class="line"><span class="comment"># 通过gcc --version查看对应版本编号</span></span><br><span class="line">CPP_INCLUDE_PATH 设为 /usr/<span class="keyword">include</span>/c++/<span class="number">4.8</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h2 id="u547D_u4EE4_u884C_u8FD0_u884CJava_u7A0B_u5E8F"><a href="#u547D_u4EE4_u884C_u8FD0_u884CJava_u7A0B_u5E8F" class="headerlink" title="命令行运行Java程序"></a>命令行运行Java程序</h2><p>如果你想在在Shell环境下运行Java程序,那么必须要找到类似于javac或java的可执行文件,因而配置环境变量是必需的。</p>
+<h3 id="u914D_u7F6E_u73AF_u5883_u53D8_u91CF"><a href="#u914D_u7F6E_u73AF_u5883_u53D8_u91CF" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>首先了解下Windows设置环境变量的方法,参考如下:<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">JAVA_HOME</span>=<span class="constant">C</span>:\<span class="constant">Program</span> <span class="constant">Files</span>\<span class="constant">Java</span>\jdk\</span><br><span class="line"><span class="constant">PATH</span>=%<span class="constant">PATH</span>%;%<span class="constant">JAVA_HOME</span>%\bin\;%<span class="constant">JAVA_HOME</span>%\jre\bin;　<span class="regexp">//</span>一定别忘了分号</span><br><span class="line"><span class="constant">CLASSPATH</span>=.;%<span class="constant">JAVA_HOME</span>%\<span class="class"><span class="keyword">lib</span>\<span class="title">dt</span>.<span class="title">jar</span>;</span>%<span class="constant">JAVA_HOME</span>%\<span class="class"><span class="keyword">lib</span>\<span class="title">tools</span>.<span class="title">jar</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>在Linux下设置环境变量一般有几种方法,它在不同情形下有效。</p>
+<ol>
+<li><p>修改<code>/etc/profile</code>,它意味着会修改系统级的环境变量,对所有用户的shell都适用</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在文件末尾添加</span></span><br><span class="line">export <span class="constant">JAVA_HOME</span>=<span class="regexp">/opt/java</span><span class="regexp">/jdk1.7.0_51 </span><br><span class="line">export PATH=$JAVA_HOME/bin</span>:<span class="variable">$PATH</span></span><br><span class="line">export <span class="constant">CLASSPATH</span>=.:<span class="variable">$JAVA_HOME</span>/<span class="class"><span class="keyword">lib</span>/<span class="title">dt</span>.<span class="title">jar</span>:$<span class="title">JAVA_HOME</span>/<span class="title">lib</span>/<span class="title">tools</span>.<span class="title">jar</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>.bash_profile</code>文件,把这些环境变量的权限控制到用户级别,只允许某个用户使用这些环境变量。同样是在文件末尾添加这三行代码,再重新登陆</p>
+</li>
+<li><p>在当前shell中临时设置变量,退出当前shell后就失效了</p>
+</li>
+</ol>
+<p>注意几个小细节:</p>
+<ul>
+<li>选择安装的jdk目录,JAVA_HOME目录后面不要多添加/,在Linux下用冒号来分割路径,赋值时变量值前加$符号</li>
+<li>CLASSPATH中当前目录<code>.</code>不能丢,利用export将这三个变量导出为全局变量</li>
+<li>使用<code>source /etc/profile</code>使其生效或注销重新登陆</li>
+<li>查看当前的系统变量: <code>echo $PATH | tr &#39;:&#39; &#39;\n&#39;</code></li>
+</ul>
+<h3 id="u547D_u4EE4_u884C_u4F7F_u7528"><a href="#u547D_u4EE4_u884C_u4F7F_u7528" class="headerlink" title="命令行使用"></a>命令行使用</h3><p>首先在shell或cmd中测试是否设置成功: <code>javac/java -version</code>,然后切到项目运行目录下,执行<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac xxx<span class="class">.java</span></span><br><span class="line">java xxx args0 args1 args2</span><br></pre></td></tr></table></figure></p>
+<p>下面解释下具体的命令:<br>1 编译生成二进制的class文件,生成xxx.class： javac xxx.java </p>
+<p>2 运行带main方法的class文件,执行时分带包和不带包的</p>
+<ul>
+<li>不带包,运行时不带class后缀名: <code>java xxx</code></li>
+<li><p>带包,即在类文件中使用了如<code>package com.stdlib.xxx</code>,运行时需要在包的基路径src下运行(假设目录结构是/src/com/stdlib),使用如下命令: </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac ./com/stdlib/xxx<span class="class">.java</span></span><br><span class="line">java com<span class="class">.stdlib</span><span class="class">.xxx</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行jar文件中的class,只需要加上参数<code>-cp &lt;jar文件名&gt;</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp <span class="tag">&lt;<span class="title">jar文件名</span>&gt;</span> <span class="tag">&lt;<span class="title">包名</span>&gt;</span>.xxx</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3 带参数的命令行</p>
+<ul>
+<li>常用方法: <code>java classname args[0] args[1] args[2]</code></li>
+<li>重定向标准输入: 以读取data.txt作为标准输入流<code>java classname &lt; data.txt</code></li>
+<li>重定向标准输出: 将标准输出流写入data.txt中<code>java classname &gt; data.txt</code></li>
+<li>管道: 将程序的输出流重定向为另外一个程序的输出流<code>java class1 args0 | java class2</code></li>
+</ul>
+<p>4 如果<code>javac</code>和<code>java</code>命令均需要引用jar包呢？例如project项目里面有lib下的jar包,src下的源码文件,想编译并运行src下的文件,只需在project目录下运行如下命令：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac -classpath ./<span class="class"><span class="keyword">lib</span>/<span class="title">stdlib</span>.<span class="title">jar</span>:./<span class="title">src</span>/ ./<span class="title">src</span>/<span class="title">BinarySearch</span>.<span class="title">java</span></span></span><br><span class="line">java -cp ./<span class="class"><span class="keyword">lib</span>/<span class="title">stdlib</span>.<span class="title">jar</span>:./<span class="title">src</span>/ <span class="title">BinarySearch</span> <span class="title">args0</span> <span class="title">args1</span> &lt;(&gt;) <span class="title">xxx</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u5E38_u89C1_u5F00_u53D1_u5DE5_u5177"><a href="#u5E38_u89C1_u5F00_u53D1_u5DE5_u5177" class="headerlink" title="常见开发工具"></a>常见开发工具</h2><ul>
+<li>版本控制Git</li>
+<li>构建工具Maven</li>
+<li>测试框架Junit</li>
+<li>Spring测试框架: Spring Test配合Junit,要求Spring版本3.0以上</li>
+<li>功能测试:使用<code>jetty-maven-plugin</code>一键启动服务</li>
+<li>性能和稳定性测试: Jmeter是成熟的工具</li>
+</ul>
+<h1 id="Node-js_u5F00_u53D1_u7BA1_u7406"><a href="#Node-js_u5F00_u53D1_u7BA1_u7406" class="headerlink" title="Node.js开发管理"></a>Node.js开发管理</h1><h2 id="u5B89_u88C5Node-js"><a href="#u5B89_u88C5Node-js" class="headerlink" title="安装Node.js"></a>安装<a href="http://nodejs.org/dist/node-latest.tar.gz" target="_blank" rel="external">Node.js</a></h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf <span class="keyword">node</span><span class="identifier"></span><span class="title">-latest</span>.tar.gz </span><br><span class="line">rm -f <span class="keyword">node</span><span class="identifier"></span><span class="title">-latest</span>.tar.gz </span><br><span class="line">cd <span class="keyword">node</span><span class="identifier"></span><span class="title">-v</span>* </span><br><span class="line">./configure </span><br><span class="line">make </span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>Node.js安装时默认安装了npm,查看两者是否安装成功<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">charles@charles-t400s:~$ <span class="keyword">node</span><span class="identifier"> </span><span class="title">--version</span></span><br><span class="line">v0.<span class="number">10.33</span></span><br><span class="line">charles@charles-t400s:~$ npm --<span class="operator">version</span></span><br><span class="line"><span class="number">1.4</span>.<span class="number">28</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Yeoman_u3001Grunt_u548CBower"><a href="#Yeoman_u3001Grunt_u548CBower" class="headerlink" title="Yeoman、Grunt和Bower"></a>Yeoman、Grunt和Bower</h2><p><strong><a href="http://yeoman.io/" target="_blank" rel="external">Yeoman</a></strong>：　使用Web开发的最佳实践方式,为开发者提供一系列健壮的工具、程序库和工作流,帮助他们快速构建出漂亮、引人注目的Web应用。</p>
+<p>它能够解决哪些前端问题呢？</p>
+<blockquote>
+<p>统一开发团队代码风格和开发规范<br>维护和使用开发的组件库<br>模块化前端项目<br>服务器部署前是否压缩？流程如何简化</p>
+</blockquote>
+<p>它不仅是一个工具,而且也是一个工作流。它由三种核心工具组成,致力于提高你构建Web App时的生产力和满意度,分别是：</p>
+<ul>
+<li><strong><a href="https://github.com/yeoman/yo" target="_blank" rel="external">Yo</a></strong> ：脚手架工具,用于搭建新应用的脚手架,编写你的Grunt配置,提交相关Grunt任务,创建你需要的Bower库依赖</li>
+<li><strong><a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a></strong> ：任务构建工具,用于自动化处理诸如代码最小化,代码编译,单元测试,代码规范等重复性任务</li>
+<li><strong><a href="http://bower.io/" target="_blank" rel="external">Bower</a></strong> ：包管理工具,用于包依赖管理,无需手动下载和管理你的脚本,用它可以对库进行搜索,自动安装,检查更新,确保依赖关系等,管理Web站点的各种资源,比如框架,库,公共部分等</li>
+<li>统一安装：<code>sudo npm install -g yo bower grunt-cli karma-jasmine</code></li>
+</ul>
+<p>检查是否安装成功：<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">charles@charles-t400s:~$ yo -v</span><br><span class="line"><span class="number">1.3</span>.<span class="number">3</span></span><br><span class="line">charles@charles-t400s:~$ bower -v</span><br><span class="line"><span class="number">1.3</span>.<span class="number">12</span></span><br><span class="line">charles@charles-t400s:~$ grunt -v</span><br><span class="line">grunt-cli: The grunt command line <span class="class"><span class="keyword">interface</span>. (<span class="title">v0</span>.1.13)</span></span><br><span class="line"></span><br><span class="line">Fatal <span class="built_in">error</span>: Unable <span class="keyword">to</span> find <span class="keyword">local</span> grunt.</span><br><span class="line"></span><br><span class="line"><span class="keyword">If</span> you<span class="comment">'re seeing this message, either a Gruntfile wasn't found or grunt</span></span><br><span class="line">hasn<span class="comment">'t been installed locally to your project. For more information about</span></span><br><span class="line">installing <span class="literal">and</span> configuring grunt, please see the Getting Started guide:</span><br><span class="line"></span><br><span class="line">http://gruntjs.com/getting-started<span class="preprocessor"></span><br><span class="line"># 这里需要定位到含Gruntfile的项目目录下才调用运行已经安装好的Grunt</span><span class="preprocessor"></span><br><span class="line"># 添加Grunt和插件到现有的一个package.json,在root模式下在项目目录中本地安装module</span></span><br><span class="line"></span><br><span class="line">sudo npm install grunt --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>Karma是一个基于Node.js的JavaScript测试执行过程管理工具（Test Runner）。Karma可用于测试所有主流Web浏览器,也可集成到CI（Continuous integration）工具</p>
+<p>Jasmine是一款 JavaScript BDD（行为驱动开发）测试框架,它不依赖于其他任何JavaScript组件,有干净清晰的语法,可以很简单的写出测试代码。</p>
+<h2 id="u521B_u5EFA_u4E00_u4E2AAngular_Web_u9879_u76EE"><a href="#u521B_u5EFA_u4E00_u4E2AAngular_Web_u9879_u76EE" class="headerlink" title="创建一个Angular Web项目"></a>创建一个Angular Web项目</h2><ol>
+<li><p>安装生成器和搭建脚手架</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="keyword">install</span> ruby ruby-compass <span class="comment"># root模式下安装ruby和compass</span></span><br><span class="line">sudo npm <span class="keyword">install</span> -g generator-angular <span class="comment">#安装angular生成器</span></span><br><span class="line">mkdir angular-hello  <span class="comment">#创建项目文件夹</span></span><br><span class="line">yo angular webapp   <span class="comment"># 搭建一个AngularJs应用程序的脚手架</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装库依赖: npm、bower</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装npm</span></span><br><span class="line">rm -rf node-modules/  <span class="comment">#上面步骤有部分库没装成功,需要root权限,因而需重新安装</span></span><br><span class="line">sudo npm <span class="keyword">install</span>   <span class="comment">#安装默认依赖</span></span><br><span class="line">sudo npm <span class="keyword">install</span> grunt-karma karma-phantomjs-launcher karma-jasmine --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装bower</span></span><br><span class="line">bower <span class="keyword">install</span> &amp;&amp; bower <span class="keyword">install</span> underscore <span class="comment">#根据所需从bower中安装库</span></span><br><span class="line">bower <span class="keyword">install</span> --save-dev xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Grunt自动化任务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install grunt --save-dev   <span class="comment">#把新版Grunt到你的项目中,并自动添加到你的项目依赖</span></span><br><span class="line">grunt <span class="built_in">test</span>   <span class="comment">#测试你的应用</span></span><br><span class="line">grunt serve  <span class="comment">#预览你的应用</span></span><br><span class="line">grunt        <span class="comment">#部署构建你的应用</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="CI_u548C_u8986_u76D6_u7387_u6D4B_u8BD5"><a href="#CI_u548C_u8986_u76D6_u7387_u6D4B_u8BD5" class="headerlink" title="CI和覆盖率测试"></a>CI和覆盖率测试</h2><p>Travis是一个持续集成(CI)平台,这样的平台可以提供不同的版本运行环境,例如Node.js程序,可以运行不同的Node.js版本,检测有没有兼容性问题,这种比手动切换node版再跑一次要方便很多。</p>
+<p>一般来说travis每次跑测试,都会提供一个基本的Linux环境,如build-essential、wget、git等基础默认依赖,一旦你的应用在travis平台跑通后,就不需担心别的用户安装不上了。</p>
+<p>Github项目连接travis的基本步骤：</p>
+<ol>
+<li><p>注册Travis(以Github用户登陆),在你的仓库下<code>Settings - Webhooks &amp; Services - Services</code>,选择添加Travis CI服务。服务拿到授权后,每当你push代码到github上,travis会自动帮你跑测试</p>
+</li>
+<li><p>构建配置信息<code>.travis.yml</code>,放在项目根目录下,由它决定你的测试该怎么运行,是用<code>npm test</code> 还是<code>make test</code> 还是<code>jake test</code>。以node-hello程序为例,一个简单的<code>.travis.yml</code>文件如下：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">	-<span class="ruby"> <span class="string">'0.11'</span></span><br><span class="line"></span>	-<span class="ruby"> <span class="string">'0.10'</span></span><br><span class="line"></span>	-<span class="ruby"> <span class="string">'0.8'</span></span><br><span class="line"></span>	</span><br><span class="line">before_install:</span><br><span class="line">    -<span class="ruby"> npm install -g yo bower grunt-cli </span><br><span class="line"></span></span><br><span class="line">services:</span><br><span class="line">    -<span class="ruby"> mongodb</span><br><span class="line"></span>	</span><br><span class="line">script: make test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>项目代码push到仓库后,travis就会被触发了,它会执行:</p>
+</li>
+</ol>
+<ul>
+<li>Travis会使用三个不同node.js版本运行程序</li>
+<li>完成安装不同版本后进入项目目录,首先根据脚本安装全局依赖,然后再根据<code>package.json</code>执行<code>npm install</code>来安装依赖</li>
+<li>执行我们指定的测试脚本。如果测试通过,返回码会是0,否则测试有不通过的case,返回码不会为0,测试失败。</li>
+</ul>
+<p>最后把Travis上显示项目目前的测试通过状态的图片添加到项目的README中:<br><a href="https://travis-ci.org/charlesxiong/node-hello/" target="_blank" rel="external"><img src="https://travis-ci.org/charlesxiong/node-hello.svg?branch=master" alt="build status"></a></p>
+<h2 id="u7EBF_u4E0A_u90E8_u7F72_u5E94_u7528"><a href="#u7EBF_u4E0A_u90E8_u7F72_u5E94_u7528" class="headerlink" title="线上部署应用"></a>线上部署应用</h2><p>Heroku和Appfog都是线上部署应用的平台。以Heroku为例,Heroku是一种Pass平台,目前支持多种语言环境,无需你配置服务器,数据库,也不需要理会负载均衡,一切都可在平台上直接获取。你只需专注于自己的业务,把应用的逻辑写好,部署到线上,非常适合开发一些demo Web应用。</p>
+<p>以部分常规的Node.js应用<a href="https://github.com/charlesxiong/node-hello" target="_blank" rel="external">Node-hello</a>为例</p>
+<ol>
+<li><p>注册Heroku,下载Heroku工具包：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- http<span class="variable">s:</span>//toolbelt.heroku.<span class="keyword">com</span>/install-ubuntu.<span class="keyword">sh</span> | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登陆Heroku并在项目目录执行：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">charles@charles-t400s:~/<span class="keyword">node</span><span class="identifier"></span><span class="title">-hello</span>$ heroku login</span><br><span class="line">Enter your Heroku credentials.</span><br><span class="line">Email: haojun.xiong2010@gmail.com</span><br><span class="line">Password (typing will be hidden): </span><br><span class="line">Authentication successful.</span><br><span class="line"></span><br><span class="line">charles@charles-t400s:~/<span class="keyword">node</span><span class="identifier"></span><span class="title">-hello</span>$ heroku create</span><br><span class="line">Creating hidden-inlet-<span class="number">5897</span>... done, stack is cedar-<span class="number">14</span></span><br><span class="line">https://hidden-inlet-<span class="number">5897</span>.herokuapp.com/ | https://git.heroku.com/hidden-inlet-<span class="number">5897</span>.git</span><br><span class="line">Git remote heroku added</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个Procfile</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web: <span class="keyword">node</span><span class="identifier"> </span><span class="title">index</span>.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把本地的master分支推送到heroku这个远端地址</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">charles@charles-t400s:~/<span class="keyword">node</span><span class="identifier"></span><span class="title">-hello</span>$ git remote -v    <span class="comment">#查看远程库</span></span><br><span class="line">heroku	https://git.heroku.com/hidden-inlet-<span class="number">5897</span>.git (fetch)</span><br><span class="line">heroku	https://git.heroku.com/hidden-inlet-<span class="number">5897</span>.git (push)</span><br><span class="line">origin	git@github.com:charlesxiong/<span class="keyword">node</span><span class="identifier"></span><span class="title">-hello</span> (fetch)</span><br><span class="line">origin	git@github.com:charlesxiong/<span class="keyword">node</span><span class="identifier"></span><span class="title">-hello</span> (push)</span><br><span class="line"></span><br><span class="line">charles@charles-t400s:~/<span class="keyword">node</span><span class="identifier"></span><span class="title">-hello</span>$ git push heroku <span class="keyword">master</span></span><br><span class="line"><span class="title">Counting</span> objects: <span class="number">29</span>, done.</span><br><span class="line">Delta compression using up to <span class="number">2</span> threads.</span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">26</span>/<span class="number">26</span>), done.</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">29</span>/<span class="number">29</span>), <span class="number">3.03</span> KiB | <span class="number">0</span> bytes/s, done.</span><br><span class="line">Total <span class="number">29</span> (delta <span class="number">10</span>), reused <span class="number">3</span> (delta <span class="number">0</span>)</span><br><span class="line">remote: Compressing source files... done.</span><br><span class="line">remote: Building source:</span><br><span class="line">remote: </span><br><span class="line">remote: -----&gt; <span class="keyword">Node</span>.<span class="identifier"></span><span class="title">js</span> app detected</span><br><span class="line">remote: .... <span class="comment">#省略具体信息</span></span><br><span class="line">remote: Verifying deploy... done.</span><br><span class="line">To https://git.heroku.com/hidden-inlet-<span class="number">5897</span>.git</span><br><span class="line"> * [new branch]      <span class="keyword">master</span> <span class="title">-&gt; master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看发布的应用网址<a href="https://hidden-inlet-5897.herokuapp.com/" target="_blank" rel="external">https://hidden-inlet-5897.herokuapp.com/</a> 或执行<code>heroku open</code></p>
+</li>
+</ol>
+<h1 id="Python_u5F00_u53D1_u7BA1_u7406"><a href="#Python_u5F00_u53D1_u7BA1_u7406" class="headerlink" title="Python开发管理"></a>Python开发管理</h1>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://charlesxiong.github.io/2015/12/21/安装Ubuntu-14-10后要做的事-下-——开发工具篇/" data-title="安装Ubuntu 14.10后要做的事(下)——开发工具篇 | Dev的技术博客" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/12/15/安装Ubuntu-14-10后要做的事-上-——基础软件篇/"  title="安装Ubuntu 14.10后要做的事(上)——基础软件篇">
+ <strong>下一篇：</strong><br/> 
+ <span>安装Ubuntu 14.10后要做的事(上)——基础软件篇
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/12/21/安装Ubuntu-14-10后要做的事-下-——开发工具篇/" data-title="安装Ubuntu 14.10后要做的事(下)——开发工具篇" data-url="http://charlesxiong.github.io/2015/12/21/安装Ubuntu-14-10后要做的事-下-——开发工具篇/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC_u73AF_u5883"><span class="toc-number">1.</span> <span class="toc-text">GCC环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u914D_u7F6EVim"><span class="toc-number">2.</span> <span class="toc-text">配置Vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sublime_text3"><span class="toc-number">3.</span> <span class="toc-text">Sublime text3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sublime_u65E0_u6CD5_u8F93_u5165_u4E2D_u6587"><span class="toc-number">3.1.</span> <span class="toc-text">sublime无法输入中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u4E9B_u5E38_u7528_u63D2_u4EF6"><span class="toc-number">3.2.</span> <span class="toc-text">一些常用插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u914D_u7F6EJava_u73AF_u5883"><span class="toc-number">4.</span> <span class="toc-text">配置Java环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5JRE"><span class="toc-number">4.1.</span> <span class="toc-text">安装JRE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5Eclipse"><span class="toc-number">4.2.</span> <span class="toc-text">安装Eclipse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u547D_u4EE4_u884C_u8FD0_u884CJava_u7A0B_u5E8F"><span class="toc-number">4.3.</span> <span class="toc-text">命令行运行Java程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u914D_u7F6E_u73AF_u5883_u53D8_u91CF"><span class="toc-number">4.3.1.</span> <span class="toc-text">配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u547D_u4EE4_u884C_u4F7F_u7528"><span class="toc-number">4.3.2.</span> <span class="toc-text">命令行使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5E38_u89C1_u5F00_u53D1_u5DE5_u5177"><span class="toc-number">4.4.</span> <span class="toc-text">常见开发工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js_u5F00_u53D1_u7BA1_u7406"><span class="toc-number">5.</span> <span class="toc-text">Node.js开发管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5Node-js"><span class="toc-number">5.1.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yeoman_u3001Grunt_u548CBower"><span class="toc-number">5.2.</span> <span class="toc-text">Yeoman、Grunt和Bower</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u521B_u5EFA_u4E00_u4E2AAngular_Web_u9879_u76EE"><span class="toc-number">5.3.</span> <span class="toc-text">创建一个Angular Web项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI_u548C_u8986_u76D6_u7387_u6D4B_u8BD5"><span class="toc-number">5.4.</span> <span class="toc-text">CI和覆盖率测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EBF_u4E0A_u90E8_u7F72_u5E94_u7528"><span class="toc-number">5.5.</span> <span class="toc-text">线上部署应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python_u5F00_u53D1_u7BA1_u7406"><span class="toc-number">6.</span> <span class="toc-text">Python开发管理</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/博客/" title="博客">博客<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-sa.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Charles Xiong">Charles Xiong</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xcharles"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<script>
+var option = {
+  engineKey: 'f6c91960ef66032403e4231ed9d5b61c53486284'
+};
+(function(w,d,t,u,n,s,e){
+  s = d.createElement(t);
+  s.src = u;
+  s.async = 1;
+  w[n] = function(r){
+    w[n].opts = r;
+  };
+  e = d.getElementsByTagName(t)[0];
+  e.parentNode.insertBefore(s, e);
+})(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+_ts(option);
+</script>
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
