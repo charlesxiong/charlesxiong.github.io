@@ -19,7 +19,7 @@
 <meta property="og:description" content="由于平时主要在Ubuntu上工作,折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu的常见问题,分为两部分,第二部分是开发工具的使用。">
 <meta property="og:image" content="http://images.cnitblog.com/blog/678327/201501/081757578128184.png">
 <meta property="og:image" content="https://travis-ci.org/charlesxiong/node-hello.svg?branch=master">
-<meta property="og:updated_time" content="2015-12-21T07:58:08.000Z">
+<meta property="og:updated_time" content="2015-12-21T07:59:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装Ubuntu 14.10后要做的事(下)——开发工具篇">
 <meta name="twitter:description" content="由于平时主要在Ubuntu上工作,折腾Ubuntu的时候比较多。这里主要是总结使用Ubuntu的常见问题,分为两部分,第二部分是开发工具的使用。">
@@ -297,9 +297,7 @@
 <li>完成安装不同版本后进入项目目录,首先根据脚本安装全局依赖,然后再根据<code>package.json</code>执行<code>npm install</code>来安装依赖</li>
 <li>执行我们指定的测试脚本。如果测试通过,返回码会是0,否则测试有不通过的case,返回码不会为0,测试失败。</li>
 </ul>
-<ol>
-<li>最后把Travis上显示项目目前的测试通过状态的图片添加到项目的README中:<br><a href="https://travis-ci.org/charlesxiong/node-hello/" target="_blank" rel="external"><img src="https://travis-ci.org/charlesxiong/node-hello.svg?branch=master" alt="build status"></a></li>
-</ol>
+<p>最后把Travis上显示项目目前的测试通过状态的图片添加到项目的README中:<br><a href="https://travis-ci.org/charlesxiong/node-hello/" target="_blank" rel="external"><img src="https://travis-ci.org/charlesxiong/node-hello.svg?branch=master" alt="build status"></a></p>
 <h2 id="u7EBF_u4E0A_u90E8_u7F72_u5E94_u7528"><a href="#u7EBF_u4E0A_u90E8_u7F72_u5E94_u7528" class="headerlink" title="线上部署应用"></a>线上部署应用</h2><p>Heroku和Appfog都是线上部署应用的平台。以Heroku为例,Heroku是一种Pass平台,目前支持多种语言环境,无需你配置服务器,数据库,也不需要理会负载均衡,一切都可在平台上直接获取。你只需专注于自己的业务,把应用的逻辑写好,部署到线上,非常适合开发一些demo Web应用。</p>
 <p>以部分常规的Node.js应用<a href="https://github.com/charlesxiong/node-hello" target="_blank" rel="external">Node-hello</a>为例</p>
 <ol>
